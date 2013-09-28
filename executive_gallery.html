@@ -1,0 +1,133 @@
+<!doctype html>
+<html lan="en">
+<head>
+<meta charset="utf-8" />
+<meta name="keywords" content="gifa, ghana, ireland, ghanaian association, imigrants, cultural group, etnic minority, social interaction, traditional, intergration, racial tolerance, school outreach, frederick amponsah" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+<script src="site.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="http://malsup.github.com/jquery.cycle2.js"></script>
+<title>Executives</title>
+<link rel="stylesheet" type="text/css" href="./css/main.css" />
+<link rel="stylesheet" type="text/css" href="./css/mobile.css" media="only screen and (max-device-width: 480px)" />
+<script>
+			$(document).ready(function() {
+					
+			$('#gallery img').each(function(i) {
+				var imgFile = $(this).attr('src');
+				var preloadImage = new Image();
+			  var imgExt = /(\.\w{3,4}$)/;
+			  preloadImage.src = imgFile.replace(imgExt,'_h$1');
+					
+				$(this).hover(
+					function() {
+						$(this).attr('src', preloadImage.src);
+					},
+					function () {
+					var currentSource=$(this).attr('src');
+						$(this).attr('src', imgFile);
+				}); // end hover
+			}); // end each
+				
+				$('#gallery a').click(function(evt) {
+					//don't follow link
+					 evt.preventDefault();
+					 //get path to new image
+					var imgPath = $(this).attr('href');
+					 //get reference to old image
+					var oldImage = $('#photo img');
+								
+					 //create HTML for new image
+					var newImage = $('<img src="' + imgPath +'">');
+					 //make new image invisible
+					newImage.hide();
+					 //add to the #photo div
+					$('#photo').prepend(newImage);
+					 //fade in new image
+					newImage.fadeIn(1000);
+					 
+					 //fade out old image and remove from DOM
+					oldImage.fadeOut(1000,function(){
+					$(this).remove();
+				});	 
+			}); // end click
+			
+			$('#gallery a:first').click();
+		}); // end ready
+</script>
+</head>
+<body>
+<div id="main_wrapper">
+  <header id="top_header">
+    <div align="center"><img src="images/gifa_logo.PNG" alt="gifa_logo" width="448" height="117" longdesc="http://www.egifa.com"></div>
+  </header>
+  <nav id="top_menu">
+    <ul>
+      <li><a href="#" class="plainLink">HOME</a></li>
+      <li><a href="#" class="plainLink">ABOUT US</a>
+        <ul class="dropdown">
+          <li><a href="#" class="plainLink">OUR HISTORY</a></li>
+          <li><a href="#" class="plainLink">AIMS & OBJECTIVES</a></li>
+          <li><a href="#" class="plainLink">CONSTITUTION</a></li>
+          <li><a href="#" class="plainLink">EXECUTIVES</a></li>
+        </ul>
+      </li>
+      <li>ABOUT GHANA</li>
+      <li>ABOUT IRELAND</li>
+      <!-- Projects Button -->
+      <li>PROJECTS
+        <ul class="dropdown">
+          <li><a href="#" class="plainLink">SCHOOL OUTREACH</a></li>
+          <li><a href="#" class="plainLink">STUDENT EXCHANGE</a></li>
+        </ul>
+      </li>
+      <li>GALLERY</li>
+      <li>CONTACT</li>
+      <!-- Events Button -->
+      <li><a href="#" class="plainLink">EVENTS</a></li>
+      <div class="twoColumnLayout"> </div>
+    </ul>
+  </nav>
+  <div id="main_content">
+    <section id="main_section">
+    <article>
+    <div class="content>
+		<div class="main>
+      		<div id="gallery">
+            <p><a href="./images/exec_large/fred.jpg">
+            	<img src="./images/exec_small/fred.jpg" width="70" height="70" alt="president"></a>
+            <p>
+            <p><a href="./images/exec_large/eric.jpg">
+            	<img src="./images/exec_small/eric.jpg" width="70" height="70" alt="secretary"></a>            
+            <p>
+            <p><a href="./images/exec_large/kwame.jpg">
+            	<img src="./images/exec_small/kwame.jpg" width="70" height="70" alt="treasurer"></a>            
+            <p>
+            <p><a href="./images/exec_large/comfort.jpg">
+            	<img src="./images/exec_small/comfort.jpg" width="70" height="70" alt="pro"></a>
+            <p>
+            <p><a href="./images/exec_large/adomah.jpg">
+            	<img src="./images/exec_small/adomah.jpg" width="70" height="70" alt="advisor"></a>            
+            <p>
+      		</div>
+    </div>
+    
+      <!--
+								<aside id="side_news">
+									<h4>News Flash</h4>
+										<p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+										Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor 
+										in reprehenderit in voluptate velit esse cillum dolore."</p>
+								</aside>
+							--></p>
+    <p>&nbsp;</p>
+  </div>
+  <div id="photo"></div>
+  </article></section>
+</div>
+<footer id="footer">
+  <h5>Copyright 2005 - 2013 GIFA. All Rights Reserved.</h5>
+</footer>
+</body>
+</div>
+</html>
